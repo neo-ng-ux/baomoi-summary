@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Tóm tắt Báo Mới",
+  "version": "1.0",
+  "description": "Hiển thị tóm tắt nhanh cho các bài viết trên Báo Mới (baomoi.com) khi di chuột qua liên kết",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.baomoi.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.baomoi.com/*"],
+      "js": ["config.js", "content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

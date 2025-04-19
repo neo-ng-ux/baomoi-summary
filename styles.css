@@ -1,0 +1,192 @@
+.baomoi-summary-tooltip {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    max-width: 300px;
+    padding: 12px;
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    margin-top: 8px;
+    pointer-events: none;
+    white-space: pre-line;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.article-tooltip {
+    position: fixed;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    max-width: 500px;
+    width: calc(100vw - 40px);
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-height: min(600px, 80vh);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-tooltip.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.article-tooltip h3 {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    line-height: 1.4;
+    color: inherit;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 12px;
+}
+
+.article-tooltip .summary {
+    color: inherit;
+    font-size: 15px;
+    padding: 12px;
+    margin: 0 -12px;
+    border-radius: 8px;
+    transition: background-color 0.15s ease;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.15) transparent; /* Added scrollbar-color */
+}
+
+.article-tooltip .summary:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.article-tooltip .summary::-webkit-scrollbar {
+    width: 6px; /* Thinner scrollbar */
+}
+
+.article-tooltip .summary::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.article-tooltip .summary::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15); /* Light gray thumb */
+    border-radius: 3px; /* Rounded corners */
+    border: none;
+}
+.article-tooltip .summary::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.article-tooltip .content {
+    flex: 1;
+    overflow-y: auto;
+    color: inherit;
+    padding: 12px;
+    margin: 12px -12px;
+    line-height: 1.7;
+    font-size: 14px;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    border-radius: 8px;
+    transition: background-color 0.15s ease;
+    max-height: 200px;
+    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.article-tooltip .content:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.article-tooltip .content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.article-tooltip .content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.article-tooltip .content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    border: none;
+}
+
+.article-tooltip .content::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .article-tooltip {
+        transition: opacity 0.05s ease-out;
+        transform: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .article-tooltip {
+        background: rgba(28, 28, 30, 0.98);
+        color: #e8e8e8;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .article-tooltip h3 {
+        border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .article-tooltip .summary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+        .article-tooltip .summary::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .article-tooltip .summary::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+     .article-tooltip .content:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    .article-tooltip .content::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .article-tooltip .content::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+@media (max-width: 480px) {
+    .article-tooltip {
+        padding: 16px;
+        font-size: 13px;
+    }
+
+    .article-tooltip h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .article-tooltip .summary {
+        font-size: 14px;
+        padding: 10px;
+        margin: 0 -10px;
+    }
+
+    .article-tooltip .content {
+        padding: 10px;
+        margin: 10px -10px;
+    }
+}
